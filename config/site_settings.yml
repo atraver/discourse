@@ -67,6 +67,9 @@ branding:
     default: -6
     client: true
     type: upload
+  logo_image_or_icon:
+    default: "image"
+    client: true
   digest_logo:
     default: ""
     client: true

@@ -4865,6 +4865,12 @@ en:
       logos:
         title: "Logos"
         fields:
+          image_or_icon:
+            choices:
+              image:
+                label: Upload an image
+              icon:
+                label: Select an icon and add text
           logo:
             label: "Primary Logo"
             description: "The logo image at the top left of your site. Use a wide rectangular image with a height of 120 and an aspect ratio greater than 3:1"

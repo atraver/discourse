@@ -220,8 +220,26 @@ class Wizard
       end
 
       @wizard.append_step('logos') do |step|
+        image_or_icon = step.add_field(id: 'image_or_icon',
+                                       type: 'radio',
+                                       required: true,
+                                       value: 'image')
+
+        image_or_icon.add_choice('image')
+        image_or_icon.add_choice('icon')
+
+        step.add_field(id: 'logo_switcher', type: 'component')
+
+        # step.add_field(id: 'logo_builder', type: 'component', value: {
+        #   logo: SiteSetting.site_logo_url,
+        #   logo_small: SiteSetting.site_logo_small_url,
+        #   text: SiteSetting.title
+        # })
+
         step.add_field(id: 'logo', type: 'image', value: SiteSetting.site_logo_url)
         step.add_field(id: 'logo_small', type: 'image', value: SiteSetting.site_logo_small_url)
+
+        step.add_field(id: 'text', type: 'text', value: SiteSetting.title)
 
         step.on_update do |updater|
           if SiteSetting.site_logo_url != updater.fields[:logo] ||
